@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large datasets / artifacts
+data/
+*.bin
+
+# Training outputs / checkpoints / visualizations
+out/
+out_*/
+
+# Tokenizer artifacts (keep JSON model, ignore training temp if any)
+tokenizer_models/*.json
+!tokenizer_models/malayalam-bpe.json
+
+# IDE
+.vscode/
+.idea/
