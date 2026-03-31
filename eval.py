@@ -1,6 +1,7 @@
 import argparse
 import json
 import math
+import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -225,6 +226,17 @@ def _maybe_bleu_rouge(preds: List[str], refs: List[str]) -> Dict[str, float]:
 
 
 def main() -> None:
+    if hasattr(sys.stdout, "reconfigure"):
+        try:
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
+    if hasattr(sys.stderr, "reconfigure"):
+        try:
+            sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
+
     p = argparse.ArgumentParser()
 
     p.add_argument("--ckpt", type=str, default=str(Path("out") / "ckpt_best.pt"))
